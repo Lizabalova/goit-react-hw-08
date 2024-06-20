@@ -20,9 +20,6 @@ const validationControl = Yup.object().shape({
 
   const handleSubmit = (values, actions) => {
     dispatch(logIn(values))
-  //  .unwrap()
-  //   .then()
-  //   .catch(error =>  toast("The contact has been added") )
  
     
     actions.resetForm();

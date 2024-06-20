@@ -17,10 +17,7 @@ export default function ContactItem({ contact: { id, name, number } }) {
     dispatch(openModal(id));
   };
 
-  // const handleChange = ({ name, number } ) => {   
-  
-  //   dispatch(changeContact(id, name, number));
-  // };
+
   const handleChange = (values) => {
 const { name, number } = values;
     dispatch(changeContact({ id, name, number }))
