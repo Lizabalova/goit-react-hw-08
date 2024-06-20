@@ -6,7 +6,7 @@ import css from './ModalWindow.module.css';
 import {
   selectIsModalOpen,
   selectIsModalDelete,
-} from "../../redux/modal/selectors";
+} from "../../redux/modal/selector";
 import toast from "react-hot-toast";
 
 
