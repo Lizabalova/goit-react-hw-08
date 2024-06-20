@@ -1,25 +1,70 @@
-.Contacts {
+.formStyle {
     display: flex;
     padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 10px;
-    justify-content: space-between;
+    margin-bottom: 10px;
+    justify-content: center;
     align-items: center;
-}
-
-.contactName {
-    display: block;
     gap: 10px;
-    line-height: 1.2em;
-    font-size: large;
-    font-weight: 500;
-    width: 200px;
+    border-radius: 5px;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #D3D3D3;
+    flex-direction: column;
 }
 
-.deleteButton {
+.fialdStyle {
+    display: block;
     padding: 10px;
-    background-color: lightgray;
-    border: 1px solid black;
+
+}
+
+.field {
+    display: block;
+    padding: 10px;
+    width: 250px;
+    border: 3px solid #D3D3D3;
     border-radius: 5px;
+}
+
+.btn {
+    display: block;
+    padding: 10px;
+    background-color: #D3D3D3;
+    border: 1px solid #818589;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    background-color: #D3D3D3;
+    color: white;
+}
+
+.err {
+    background-color: #D22B2B;
+
+}
+
+.btnBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.btnDel {
+    display: block;
+    padding: 10px;
+    background-color: #D3D3D3;
+    border: 1px solid #818589;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.btnDel:hover,
+.btnDel:focus,
+.btnDel:active {
+    background-color: #D3D3D3;
+    color: white;
 }

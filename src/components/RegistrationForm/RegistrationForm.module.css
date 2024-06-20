@@ -1,0 +1,53 @@
+.form {
+    width: 320px;
+    background-color: #D3D3D3;
+    border: 1px solid #818589;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 30px auto;
+    font-size: large;
+    font-weight: 500;
+
+
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-bottom: 16px;
+}
+
+.btn {
+    display: block;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #818589;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    background-color: #818589;
+    color: white;
+}
+
+.err {
+    background-color: #818589;
+}
+
+.fialdStyle {
+    display: block;
+
+
+}
+
+.field {
+    display: block;
+    padding: 10px;
+    width: 280px;
+    border: 1px solid #818589;
+    border-radius: 5px;
+}

@@ -20,7 +20,7 @@
     display: block;
     padding: 10px;
     width: 250px;
-    border: 1px solid #818589;
+    border: 1px solid #818589;;
     border-radius: 5px;
 }
 
@@ -28,7 +28,7 @@
     display: block;
     padding: 10px;
     background-color: white;
-    border: 1px solid #818589;
+    border: 1px solid #818589;;
     border-radius: 5px;
     margin: 0 auto;
 }
@@ -36,11 +36,17 @@
 .btn:hover,
 .btn:focus,
 .btn:active {
-    background-color: #D3D3D3;
+    background-color: #818589;;
     color: white;
 }
 
 .err {
     background-color: #D22B2B;
 
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
 }

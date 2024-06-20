@@ -1,80 +1,92 @@
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useId } from "react";
+import * as Yup from "yup";
+import toast from "react-hot-toast";
+
+import { addContact } from "../../redux/contacts/operations";
+import { useDispatch } from "react-redux";
 import css from "./ContactForm.module.css";
 
-import { Field, Form, Formik, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { useId } from "react";
-import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+  export const validationControl = Yup.object().shape({
+    name: Yup.string()
+      .min(3, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    number: Yup.string()
+      .min(3, "Too short")
+      .max(12, "Too long")
+      .required("Required"),
+  });
 
-const FeedbackSchema = Yup.object().shape({
-  username: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  number: Yup.string()
-    .matches(
-      /^(?:\d{10}|\d{3}-\d{3}-\d{2}-\d{2})$/,
-      "Phone number must be 10 digits long or in format xxx-xxx-xx-xx"
-    )
-    .required("Required"),
-});
-
-const ContactForm = () => {
-  const nameFieldId = useId();
-  const phoneFieldId = useId();
-
+export default function ContactForm() {
   const dispatch = useDispatch();
+  const nameFieldId = useId();
+  const numberFieldId = useId();
+
+        
+  const initialContact = {
+    name: "",
+    number: "",
+  };
+
+  const handleSubmit = (values, actions) => {
+    dispatch(addContact(values))
+      .unwrap()
+      .then(() => {
+           toast("The contact has been added", {
+             style: { background: "#a477e0" },
+             position: "top-center",
+           });
+      })
+      .catch(() => {
+        toast("Was error, please try again", {
+          style: { background: "#fb30c8" },
+          containerStyle: {
+            top: 150,
+            left: 20,
+            bottom: 20,
+            right: 20,
+          },
+        });
+      });
+    
+
+    actions.resetForm();
+  };
 
   return (
     <Formik
-      initialValues={{ username: "", number: "" }}
-      validationSchema={FeedbackSchema}
-      onSubmit={(values, actions) => {
-        const newContact = {
-          name: values.username,
-          number: values.number,
-        };
-        dispatch(addContact(newContact));
-        actions.resetForm();
-      }}
+      initialValues={initialContact}
+      onSubmit={handleSubmit}
+      validationSchema={validationControl}
     >
-      <Form className={css.formContainer}>
-        <label htmlFor={nameFieldId} className={css.label}>
-          Username
-        </label>
-        <Field
-          type="text"
-          name="username"
-          id={nameFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="username"
-          component="span"
-          className={css.errorMessage}
-        />
+      <Form className={css.formStyle}>
+        <div className={css.fialdStyle}>
+          <label htmlFor={nameFieldId}>Name</label>
+          <Field
+            className={css.field}
+            id={nameFieldId}
+            type="text"
+            name="name"
+          />
+          <ErrorMessage className={css.err} name="name" component="span" />
+        </div>
 
-        <label htmlFor={phoneFieldId} className={css.label}>
-          Phone
-        </label>
-        <Field
-          type="text"
-          name="number"
-          id={phoneFieldId}
-          className={css.inputField}
-        />
-        <ErrorMessage
-          name="number"
-          component="span"
-          className={css.errorMessage}
-        />
+        <div className={css.fialdStyle}>
+          <label htmlFor={numberFieldId}>Number</label>
+          <Field
+            className={css.field}
+            id={numberFieldId}
+            type="tel"
+            name="number"
+          />
+          <ErrorMessage className={css.err} name="number" component="span" />
+        </div>
 
-        <button type="submit" className={css.submitButton}>
+        <button type="submit" className={css.btn}>
           Add contact
         </button>
       </Form>
     </Formik>
   );
-};
-
-export default ContactForm;
+}

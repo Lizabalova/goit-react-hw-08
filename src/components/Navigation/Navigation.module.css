@@ -1,0 +1,16 @@
+.link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 700;
+    color: #2a363b;
+    border-radius: 5px;
+}
+
+.link.active {
+    color: #818589;
+}
+
+.nav {
+    margin-left: 10px;
+}
