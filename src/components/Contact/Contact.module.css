@@ -1,0 +1,25 @@
+.Contacts {
+    display: flex;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contactName {
+    display: block;
+    gap: 10px;
+    line-height: 1.2em;
+    font-size: large;
+    font-weight: 500;
+    width: 200px;
+}
+
+.deleteButton {
+    padding: 10px;
+    background-color: lightgray;
+    border: 1px solid black;
+    border-radius: 5px;
+}

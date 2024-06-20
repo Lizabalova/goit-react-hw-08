@@ -1,0 +1,18 @@
+.searchBoxContainer {
+    display: block;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 300px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+.searchBoxInput {
+    width: 230px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 35px;
+}
